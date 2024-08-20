@@ -18,12 +18,12 @@ type SocialLink = {
 }
 
 export const siteConfig: Config = {
-  title: "Astro Theme Cody",
+  title: "{NetworkMario}",
   description: "",
   lang: "en-GB",
   profile: {
-    author: "Amy Dang",
-    description: "your bio description"
+    author: "Mario Montella",
+    description: ""
   }
 }
 
@@ -36,17 +36,17 @@ export const socialLinks: Array<SocialLink> = [
   {
     icon: "mdi:github",
     friendlyName: "Github",
-    link: "https://github.com/kirontoo/astro-theme-cody",
+    link: "https://github.com/mariomontella",
   },
   {
     icon: "mdi:linkedin",
     friendlyName: "LinkedIn",
-    link: "#",
+    link: "https://www.linkedin.com/in/mario-montella-54090b145/",
   },
   {
     icon: "mdi:email",
     friendlyName: "email",
-    link: "mailto:ndangamy@gmail.com",
+    link: "mailto:networkmario2.0@gmail.com",
   },
   {
     icon: "mdi:rss",
@@ -68,12 +68,6 @@ export const NAV_LINKS: Array<{ title: string, path: string }> = [
     title: "Blog",
     path: "/blog",
   },
-  {
-    title: "Projects",
-    path: '/projects'
-  },
-  {
-    title: "Archive",
-    path: '/archive'
-  }
+  
+  
 ];

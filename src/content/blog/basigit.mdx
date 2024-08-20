@@ -1,0 +1,308 @@
+---
+title: 'Le Basi di Git: Una Guida Pratica'
+description: 'Introduzione a Git e le funzionalità di ogni comando'
+pubDate: 'Aug 10 2024'
+heroImage: 
+  src: '/git2.jpeg'
+  alt: 'git2'
+tags: ["software", "versioning-control"]
+updatedDate: 'Aug 18 2024'
+series: "versioning"
+---
+
+
+
+
+<section>
+ Git è un sistema di controllo versione distribuito, utilizzato principalmente per gestire progetti di sviluppo software. La sua caratteristica principale è la capacità di tracciare i cambiamenti all'interno del codice sorgente in modo che gli sviluppatori possano collaborare in maniera efficiente. A differenza di sistemi di controllo versione centralizzati, Git consente a ogni sviluppatore di avere una copia completa del repository sul proprio computer, rendendo le operazioni più rapide e flessibili.
+</section>
+
+<h3>Configurazione Iniziale</h3>
+
+<section>
+Prima di iniziare a utilizzare Git, è necessario configurare alcune informazioni di base:
+</section>
+
+
+```bash
+git config --global user.name "Il Tuo Nome"
+git config --global user.email "tuoemail@example.com"
+
+```
+<section> Questi comandi impostano il nome e l'email che appariranno nei tuoi commit. L'opzione --global applica queste impostazioni a tutti i repository Git dell'utente. </section>
+
+<h3>
+Creazione di un Nuovo Repository
+
+</h3>
+
+<section>
+Per iniziare a utilizzare Git in un nuovo progetto, si può creare un nuovo repository (repo):
+</section>
+
+```bash
+git init
+```
+
+<h3>
+Aggiungere e Commitare File
+</h3>
+
+<section>
+Una volta che hai modificato o aggiunto nuovi file al tuo progetto, dovrai aggiungerli all'indice (o stage) prima di poterli committare:
+</section>
+
+
+```bash
+git add nomefile.txt
+
+```
+
+<section>
+Puoi anche aggiungere tutti i file modificati usando:
+</section>
+
+```bash
+git add .
+
+```
+<section>
+Il comando `.` aggiunge tutti i file nella directory corrente e nelle sottodirectory.
+Dopo aver aggiunto i file all'indice, puoi creare un commit, che salva una snapshot dei file in quel momento:
+</section>
+
+```bash
+git commit -m "Messaggio del commit"
+
+```
+<section>
+Il messaggio del commit dovrebbe descrivere brevemente i cambiamenti apportati.
+</section>
+
+<h3>
+Visualizzare lo Stato del Repository
+</h3>
+
+<section>
+Per vedere lo stato attuale del repository, inclusi i file modificati e quelli pronti per essere committati, utilizza:
+</section>
+
+```bash
+git status
+```
+<section>
+Questo comando ti dà un'idea di cosa è cambiato nel progetto rispetto all'ultimo commit.
+</section>
+
+<h3>
+Visualizzare la Storia del Progetto
+</h3>
+
+<section>
+Git tiene traccia di tutti i commit fatti nel progetto. Puoi visualizzare la storia dei commit con:
+</section>
+
+```bash
+git log
+```
+<section>
+Questo comando mostra l'elenco dei commit, con dettagli come l'autore, la data e il messaggio del commit. Se desideri una versione più compatta, puoi usare:
+</section>
+
+```bash
+git log --oneline
+```
+<h3>
+Gestire i Rami (Branches)
+</h3>
+
+<section>
+I rami in Git permettono di lavorare su funzionalità o correzioni di bug in modo isolato. Per creare un nuovo ramo e passare a esso:
+</section>
+
+```bash
+git checkout -b nome-branch
+```
+<section>
+Questo comando crea un nuovo ramo e sposta il puntatore del repository su di esso. Per tornare al ramo principale (solitamente chiamato main o master):
+</section>
+
+```bash
+git checkout main
+```
+
+<section>
+Per vedere tutti i rami disponibili:
+</section>
+
+```bash
+git branch
+```
+<h3>
+Unire i branch 
+</h3>
+
+<section>
+Dopo aver completato il lavoro su un ramo, è possibile unirlo al ramo principale:
+</section>
+
+```bash
+git checkout main
+git merge nome-branch
+```
+
+<section>
+Questo comando unisce le modifiche del ramo nome-ramo nel ramo main. Se ci sono conflitti tra i cambiamenti dei due rami, Git ti chiederà di risolverli manualmente.
+</section>
+
+<h3>
+Visualizzare le Differenze con git diff
+</h3>
+
+<section>
+Il comando git diff è utilizzato per confrontare le differenze tra varie versioni di file nel tuo repository. È utile per vedere cosa è cambiato tra il contenuto dei file e quello già registrato nei commit.
+</section>
+
+
+<h4>
+Differenze non aggiunte all'indice
+</h4>
+
+<section>
+Se vuoi vedere le modifiche apportate ai file che non sono ancora state aggiunte all'indice (staged), puoi usare:
+</section>
+
+```bash
+git diff
+
+```
+<section>
+Questo comando ti mostrerà le differenze tra il file modificato nella tua directory di lavoro e la versione salvata nell'ultimo commit o aggiunta all'indice.
+</section>
+
+<h4>
+Differenze tra l'indice e l'ultimo commit
+</h4>
+
+<section>
+Per visualizzare le differenze tra i file nell'indice e l'ultimo commit, utilizza:
+</section>
+
+
+```bash
+git diff --staged
+
+```
+<section>
+Questo comando è utile per rivedere le modifiche che hai già aggiunto all'indice ma non ancora committato.
+</section>
+
+<h4>
+Differenze tra due commit
+</h4>
+
+<section>
+Se vuoi confrontare le differenze tra due specifici commit, puoi utilizzare:
+</section>
+
+```bash
+git diff commit1 commit2
+
+```
+
+<section>
+Sostituisci commit1 e commit2 con gli hash dei commit o con i riferimenti (come HEAD, HEAD~1, ecc.). Questo comando ti mostrerà le differenze tra i due commit specificati.
+</section>
+
+<h4>
+Differenze tra rami
+</h4>
+
+<section>
+Se vuoi vedere le differenze tra due rami diversi, usa:
+</section>
+
+```bash
+git diff ramo1 ramo2
+
+
+```
+
+<section>
+Questo comando confronta tutte le modifiche tra i due rami, ramo1 e ramo2.
+</section>
+
+<h4>
+Differenze in un singolo file
+</h4>
+<section>
+Se ti interessa solo vedere le differenze in un singolo file, puoi specificarlo alla fine del comando git diff:
+</section>
+
+```bash
+git diff nomefile.txt
+```
+<h3>
+Esempio Pratico di git diff
+</h3>
+
+<section>
+Supponiamo di lavorare su un file chiamato script.py. Hai fatto delle modifiche al file ma non le hai ancora aggiunte all'indice. Puoi visualizzare le modifiche usando:
+</section>
+
+```bash
+git diff script.py
+```
+<section>
+Vedrai un output che ti mostra le righe aggiunte, modificate o eliminate. Le righe aggiunte saranno precedute da un segno +, mentre quelle rimosse saranno precedute da un segno -.
+</section>
+
+
+<h3>
+Clonare un Repository Esistente
+</h3>
+
+<section>
+Se vuoi iniziare a lavorare su un progetto esistente, puoi clonare un repository remoto:
+</section>
+
+```bash
+git clone https://github.com/utente/repository.git
+```
+<section>
+Questo comando crea una copia locale del repository remoto, che puoi poi modificare e aggiornare.
+</section>
+
+<h3>
+Collaborare con Remoti
+</h3>
+
+<section>
+Git permette di collaborare con altri sviluppatori tramite repository remoti. Per aggiungere un repository remoto:
+</section>
+
+```bash
+git remote add origin https://github.com/utente/repository.git
+```
+<section>
+Per inviare le tue modifiche al repository remoto:
+</section>
+
+```bash
+git push origin main
+```
+<section>
+Se hai clonato un repository e vuoi aggiornare la tua copia locale con le ultime modifiche:
+</section>
+
+```bash
+git fetch
+git pull origin main
+```
+<h3>
+Conclusione
+</h3>
+
+<section>
+Git è uno strumento potente e flessibile per la gestione dei progetti di sviluppo. Con le basi coperte in questa guida, sarai in grado di iniziare a lavorare con Git in modo efficiente. Continuando a esplorare e a utilizzare i comandi di Git, ti accorgerai presto della sua importanza nel flusso di lavoro quotidiano degli sviluppatori.
+</section>

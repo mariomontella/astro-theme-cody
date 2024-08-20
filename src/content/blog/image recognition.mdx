@@ -1,0 +1,243 @@
+---
+title: 'Sviluppare Modelli di Riconoscimento delle Immagini con TensorFlow: Utilizzando MobileNetV2'
+description: 'TensorFlow, una delle librerie più potenti e flessibili per il machine learning, offre strumenti straordinari per sviluppare modelli di riconoscimento delle immagini.'
+heroImage: 
+    src: '/imagerec.webp'
+    alt: 'imagerec'
+pubDate: 'Jul 02 2024'
+categories: ['machine learning']
+authors: ['mario']
+tags: ['software', 'artificial intelligence']
+---
+
+
+<h3>Introduzione </h3>
+
+<section>
+  L'Intelligenza Artificiale sta rivoluzionando il mondo dello sviluppo software, e uno dei campi più eccitanti è il riconoscimento delle immagini. TensorFlow, una delle librerie più potenti e flessibili per il machine learning, offre strumenti straordinari per sviluppare modelli di riconoscimento delle immagini. In questa guida, esploreremo come utilizzare un modello pre-addestrato, MobileNetV2, per il riconoscimento delle immagini.
+</section>
+
+<h3>Sezione 1: Preparazione dell'Ambiente di Sviluppo</h3>
+
+<section style="color: white;">
+*Installazione di TensorFlow*
+</section>
+<section>
+Per iniziare, assicurati di avere python installato sul tuo sistema. Poi, installa TensorFlow utilizzando pip:
+</section>
+
+```bash
+pip install tensorflow
+```
+<h3> Configurazione degli Strumenti </h3>
+
+<section>
+Per il nostro lavoro, useremo Jupyter Notebook, che puoi installare con:
+</section>
+
+<section>
+Avvia Jupyter Notebook con il comando:
+</section>
+
+```bash
+jupyter notebook
+```
+<h3> Sezione 2: Raccolta e Preparazione dei Dati</h3>
+
+<section>
+Dataset di Immagini
+</section>
+
+<section>
+Utilizzeremo il dataset CIFAR-10, che contiene 60.000 immagini a colori in 10 classi diverse. Ecco come caricare il dataset:
+</section>
+
+```python
+import tensorflow as tf
+from tensorflow.keras.datasets import cifar10
+
+(train_images, train_labels), (test_images, test_labels) = cifar10.load_data()
+```
+
+<section>
+*Preprocessing delle Immagini*
+</section>
+
+<section>
+Normalizziamo le immagini, ridimensionandole tra 0 e 1:
+</section>
+
+```python
+train_images, test_images = train_images / 255.0, test_images / 255.0
+
+```
+
+<h3> Sezione 3: Utilizzo di MobileNetV2 </h3>
+
+<section>
+Caricamento del Modello Pre-addestrato
+</section>
+
+<section>
+Utilizziamo MobileNetV2, un modello leggero e potente, pre-addestrato su ImageNet:
+</section>
+
+```python
+from tensorflow.keras.applications import MobileNetV2
+from tensorflow.keras import layers, models
+
+base_model = MobileNetV2(input_shape=(32, 32, 3),
+                         include_top=False,
+                         weights='imagenet')
+
+base_model.trainable = False
+
+```
+
+<section>
+Costruzione del Modello
+</section>
+
+<section>
+Aggiungiamo i nostri livelli superiori per adattare MobileNetV2 al nostro dataset:
+</section>
+
+```python
+model = models.Sequential([
+    base_model,
+    layers.GlobalAveragePooling2D(),
+    layers.Dense(10, activation='softmax')
+])
+
+```
+
+<section>
+Compilazione del Modello
+</section>
+
+<section>
+Compiliamo il modello specificando l'optimizer, la loss function e le metriche:
+</section>
+
+```python
+model.compile(optimizer='adam',
+              loss='sparse_categorical_crossentropy',
+              metrics=['accuracy'])
+```
+<h3>
+Sezione 4: Addestramento e Valutazione del Modello
+</h3>
+
+<section>
+*Training del modello*
+</section>
+
+<section>
+Addestriamo il modello con i dati di training:
+</section>
+
+```python
+history = model.fit(train_images, train_labels, epochs=10, 
+                    validation_data=(test_images, test_labels))
+
+```
+<section>
+*Valutazione delle Prestazioni*
+</section>
+
+<section>
+Valutiamo il modello sui dati di test
+</section>
+
+```python
+
+test_loss, test_acc = model.evaluate(test_images, test_labels, verbose=2)
+print('\nTest accuracy:', test_acc)
+
+```
+
+<h3>
+Sezione 5: Ottimizzazione e Miglioramenti
+</h3>
+
+<section>
+
+*Fine-tuning del Modello*
+</section>
+
+<section>
+Per migliorare le prestazioni, possiamo sbloccare alcuni strati del modello base e addestrarli:
+</section>
+
+```python
+base_model.trainable = True
+model.compile(optimizer=tf.keras.optimizers.Adam(1e-5),
+              loss='sparse_categorical_crossentropy',
+              metrics=['accuracy'])
+
+history_fine = model.fit(train_images, train_labels, epochs=10, 
+                         validation_data=(test_images, test_labels))
+
+```
+
+<h3>
+Sezione 6: Distribuzione del Modello  
+</h3>
+
+<section>
+Salvataggio del Modello  
+Salviamo il modello per l'uso futuro
+</section>
+
+```python
+model.save('mobilenetv2_cifar10.h5')
+```
+
+<section>
+Implementazione in un'Applicazione Web  
+Possiamo creare una semplice API per il nostro modello usando Flask:
+</section>
+
+```python
+from flask import Flask, request, jsonify
+import tensorflow as tf
+from tensorflow.keras.models import load_model
+from PIL import Image
+import numpy as np
+
+app = Flask(__name__)
+model = load_model('mobilenetv2_cifar10.h5')
+
+def preprocess_image(image, target_size):
+    image = Image.open(image)
+    image = image.resize(target_size)
+    image = np.array(image) / 255.0
+    image = np.expand_dims(image, axis=0)
+    return image
+
+@app.route('/predict', methods=['POST'])
+def predict():
+    image = request.files['file']
+    processed_image = preprocess_image(image, target_size=(32, 32))
+    prediction = model.predict(processed_image)
+    return jsonify({'prediction': prediction.tolist()})
+
+if __name__ == '__main__':
+    app.run(debug=True)
+
+```
+
+<section>
+Questo è un esempio base su come utilizzare un modello pre-addestrato, MobileNetV2, per il riconoscimento delle immagini con TensorFlow. Dalla preparazione dei dati all'implementazione del modello in un'applicazione web. Utilizzare i modelli pre-addestrati consente di risparmiare tempo e risorse, ottenendo al contempo prestazioni eccellenti.
+</section>
+
+<h3>
+Link utili
+</h3>
+
+[CIFAR-10](https://www.tensorflow.org/datasets/catalog/cifar10?hl=it).  
+[TensorFlow Docs](https://www.tensorflow.org/api_docs).  
+[MobileNetV2](https://www.tensorflow.org/api_docs/python/tf/keras/applications/MobileNetV2).  
+[Flask](https://flask.palletsprojects.com/en/3.0.x/).
+
+

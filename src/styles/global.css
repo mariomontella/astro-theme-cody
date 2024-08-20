@@ -25,6 +25,7 @@
     --theme-quote: #93e1d4;
     --theme-highlight: #93e1d4;
   }
+  
 
   html {
     @apply scroll-smooth;
