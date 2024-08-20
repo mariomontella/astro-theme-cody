@@ -152,9 +152,8 @@ Right aligned columns
 
 ## Images
 
-Image in the same folder: `src/content/post/markdown-elements/logo.png`
 
-![Astro theme cactus logo](./logo.png)
+
 
 Image in the aliased assets folder: `src/assets/about-astro.png`
 
