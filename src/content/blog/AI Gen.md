@@ -18,6 +18,7 @@ Sviluppata da Harrison Chase e lanciata nell'ottobre 2022, LangChain funge da pi
 
 LangChain cerca di dotare gli ingegneri dei dati di un kit di strumenti onnicomprensivo per l'utilizzo degli LLM in diversi casi d'uso, inclusi chatbot, risposta automatizzata alle domande, riepilogo del testo e altro ancora.
 
+![](./foto/langchain.webp)
 
 
 L'immagine sopra mostra come LangChain gestisce ed elabora le informazioni per rispondere alle richieste dell'utente. Inizialmente, il sistema inizia con un documento di grandi dimensioni contenente una vasta gamma di dati. Questo documento viene quindi suddiviso in parti più piccole e più gestibili.
