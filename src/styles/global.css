@@ -188,7 +188,6 @@
   .fade-out {
     @apply transition-opacity duration-700 ease-in opacity-0 duration-700;
   }
-
   .twitter-container {
     display: grid; /* Usa CSS Grid per il layout */
     grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); /* Crea colonne flessibili */
@@ -200,6 +199,9 @@
     width: 100%; /* Adatta la larghezza del tweet al contenitore della griglia */
     border: none; /* Rimuovi il bordo del tweet */
     margin: 0; /* Rimuovi margini default */
+    border-radius: 25px; /* Arrotonda i bordi dei tweet */
+    overflow: hidden; /* Assicurati che il contenuto non esca dai bordi */
 }
+
 
 }
