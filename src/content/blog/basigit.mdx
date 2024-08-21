@@ -27,13 +27,11 @@ Prima di iniziare a utilizzare Git, è necessario configurare alcune informazion
 ```bash
 git config --global user.name "Il Tuo Nome"
 git config --global user.email "tuoemail@example.com"
-
 ```
 <section> Questi comandi impostano il nome e l'email che appariranno nei tuoi commit. L'opzione --global applica queste impostazioni a tutti i repository Git dell'utente. </section>
 
 <h3>
 Creazione di un Nuovo Repository
-
 </h3>
 
 <section>
@@ -55,7 +53,6 @@ Una volta che hai modificato o aggiunto nuovi file al tuo progetto, dovrai aggiu
 
 ```bash
 git add nomefile.txt
-
 ```
 
 <section>
@@ -64,7 +61,6 @@ Puoi anche aggiungere tutti i file modificati usando:
 
 ```bash
 git add .
-
 ```
 <section>
 Il comando `.` aggiunge tutti i file nella directory corrente e nelle sottodirectory.
@@ -73,7 +69,6 @@ Dopo aver aggiunto i file all'indice, puoi creare un commit, che salva una snaps
 
 ```bash
 git commit -m "Messaggio del commit"
-
 ```
 <section>
 Il messaggio del commit dovrebbe descrivere brevemente i cambiamenti apportati.
@@ -174,7 +169,6 @@ Se vuoi vedere le modifiche apportate ai file che non sono ancora state aggiunte
 
 ```bash
 git diff
-
 ```
 <section>
 Questo comando ti mostrerà le differenze tra il file modificato nella tua directory di lavoro e la versione salvata nell'ultimo commit o aggiunta all'indice.
@@ -191,7 +185,6 @@ Per visualizzare le differenze tra i file nell'indice e l'ultimo commit, utilizz
 
 ```bash
 git diff --staged
-
 ```
 <section>
 Questo comando è utile per rivedere le modifiche che hai già aggiunto all'indice ma non ancora committato.
@@ -207,7 +200,6 @@ Se vuoi confrontare le differenze tra due specifici commit, puoi utilizzare:
 
 ```bash
 git diff commit1 commit2
-
 ```
 
 <section>
@@ -224,8 +216,6 @@ Se vuoi vedere le differenze tra due rami diversi, usa:
 
 ```bash
 git diff ramo1 ramo2
-
-
 ```
 
 <section>

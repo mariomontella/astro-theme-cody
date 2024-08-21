@@ -18,7 +18,7 @@ type SocialLink = {
 }
 
 export const siteConfig: Config = {
-  title: "{NetworkMario}",
+  title: "NetworkMario",
   description: "",
   lang: "en-GB",
   profile: {

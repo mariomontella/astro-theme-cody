@@ -19,11 +19,11 @@
     color-scheme: dark;
     --theme-bg: #1d1d1d;
     --theme-text: #ededed;
-    --theme-accent: #93e1d4;
+    --theme-accent: #adff2f;
     --theme-accent-2: #545454;
     --theme-surface: #2f2f2f;
-    --theme-quote: #93e1d4;
-    --theme-highlight: #93e1d4;
+    --theme-quote: #adff2f;
+    --theme-highlight: #adff2f;
   }
   
 
@@ -188,4 +188,18 @@
   .fade-out {
     @apply transition-opacity duration-700 ease-in opacity-0 duration-700;
   }
+
+  .twitter-container {
+    display: grid; /* Usa CSS Grid per il layout */
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); /* Crea colonne flessibili */
+    gap: 20px; /* Spazio tra i tweet */
+    justify-content: center; /* Centratura degli elementi */
+}
+
+.twitter-tweet {
+    width: 100%; /* Adatta la larghezza del tweet al contenitore della griglia */
+    border: none; /* Rimuovi il bordo del tweet */
+    margin: 0; /* Rimuovi margini default */
+}
+
 }

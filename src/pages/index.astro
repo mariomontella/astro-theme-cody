@@ -46,7 +46,7 @@ const tech: Array<{ title: string; desc: string; href: string }> = [
 
 <BaseLayout title="Home">
 	<section>
-		<h1 class="title">Hello World!</h1>
+		<h1 class="title">Hello World;</h1>
 		<p class="mb-4 sm:mb-8">
 			Hi, I'm Mario, a technology enthusiast. I love exploring the world of programming and closely following the latest technology trends. With the combination of creativity and technical skill, I am always looking for new challenges and exciting projects. Welcome to my digital world!
 		</p>
@@ -62,7 +62,55 @@ const tech: Array<{ title: string; desc: string; href: string }> = [
 			{allPostsByPinned.map(p => <PostPreview post={p}/>)}
 		</ul>
 	</section>
+	<section class="mt-16">
+		<h2 class="title">Useful Resources</h2>
+		<ul class="space-y-4 sm:space-y-2">
+			<li>
+				<a href="https://developer.mozilla.org/" target="_blank" rel="noopener noreferrer" class="cody-link inline-block">
+					MDN Web Docs
+				</a>
+				<p class="inline-block sm:mt-2">Comprehensive resource for web developers.</p>
+			</li>
+			<li>
+				<a href="https://css-tricks.com/" target="_blank" rel="noopener noreferrer" class="cody-link inline-block">
+					CSS-Tricks
+				</a>
+				<p class="inline-block sm:mt-2">Tips and tricks for all things CSS.</p>
+			</li>
+			<li>
+				<a href="https://docs.flutter.dev/" target="_blank" rel="noopener noreferrer" class="cody-link inline-block">
+					Flutter Docs
+				</a>
+				<p class="inline-block sm:mt-2"> Resource for flutter developers.</p>
+			</li>
+			<li>
+				<a href="https://pub.dev/" target="_blank" rel="noopener noreferrer" class="cody-link inline-block">
+					pub.dev
+				</a>
+				<p class="inline-block sm:mt-2"> Package repo for Flutter</p>
+			</li>
+			<li>
+				<a href="https://flutterawesome.com/" target="_blank" rel="noopener noreferrer" class="cody-link inline-block">
+					Flutter Awesome
+				</a>
+				<p class="inline-block sm:mt-2"> Flutter projects ideas</p>
+			</li>
+			<li>
+				<a href="https://github.com/Asabeneh/30-Days-Of-Python" target="_blank" rel="noopener noreferrer" class="cody-link inline-block">
+					Python Learning
+				</a>
+				<p class="inline-block sm:mt-2"> Python in 30 days</p>
+			</li>
+			<li>
+				<a href="https://github.com/realpython/python-guide/tree/master" target="_blank" rel="noopener noreferrer" class="cody-link inline-block">
+					Python Guide
+				</a>
+				<p class="inline-block sm:mt-2"> Alternative guide for Python learning</p>
+			</li>
+		</ul>
+	</section>
 
+	
 	<!-- <section class="mt-16">
 			<h2 class="title">Technologies</h2>
 			<ul class="space-y-4 sm:space-y-2">
