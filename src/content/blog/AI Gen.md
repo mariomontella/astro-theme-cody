@@ -7,7 +7,7 @@ heroImage:
   alt: 'aitools'
 tags: ['AI', 'technology', 'machine learning', 'deep learning']
 updatedDate: 'Sep 10 2023'
-series: "example"
+series: "AI-gen"
 ---
 
 Nel panorama tecnologico in rapida evoluzione, l'intelligenza artificiale generativa rappresenta una forza rivoluzionaria, trasformando il modo in cui gli sviluppatori e gli ingegneri AI/ML affrontano problemi complessi e innovano. Questo articolo approfondisce il mondo dell'intelligenza artificiale generativa, scoprendo framework e strumenti essenziali per ogni sviluppatore.
