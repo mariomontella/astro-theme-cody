@@ -21,10 +21,36 @@
     --theme-text: #ededed;
     --theme-accent: #adff2f;
     --theme-accent-2: #545454;
+    --theme-surface: #1d1d1d;
+    --theme-quote: #adff2f;
+    --theme-highlight: #adff2f;
+  }
+
+  /* default mario
+:root.dark {
+    color-scheme: dark;
+    --theme-bg: #1d1d1d;
+    --theme-text: #ededed;
+    --theme-accent: #adff2f;
+    --theme-accent-2: #545454;
     --theme-surface: #2f2f2f;
     --theme-quote: #adff2f;
     --theme-highlight: #adff2f;
   }
+  */
+
+  /* blu theme mio 
+  :root.dark {
+    color-scheme: dark;
+    --theme-bg: #16202a;
+    --theme-text: #f0ffff;
+    --theme-accent: #87cefa;
+    --theme-accent-2: #545454;
+    --theme-surface: #16202a;
+    --theme-quote: #87cefa;
+    --theme-highlight: #87cefa;
+  }
+   */
   
 
   html {
@@ -197,9 +223,9 @@
 
 .twitter-tweet {
     width: 100%; /* Adatta la larghezza del tweet al contenitore della griglia */
-    border: none; /* Rimuovi il bordo del tweet */
+
     margin: 0; /* Rimuovi margini default */
-    border-radius: 25px; /* Arrotonda i bordi dei tweet */
+    border-radius: 10px;
     overflow: hidden; /* Assicurati che il contenuto non esca dai bordi */
 }
 
