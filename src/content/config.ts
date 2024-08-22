@@ -1,3 +1,4 @@
+import { boolean } from 'astro/zod';
 import { defineCollection, z } from 'astro:content';
 
 function removeDupsAndLowercase(list: string[]) {
@@ -36,6 +37,7 @@ const blog = defineCollection({
 			.optional(),
 		series: z.string().optional(),
 		draft: z.boolean().optional().default(false),
+		pinned: z.boolean().optional(),
 		// for pinning posts
 		order: z.number().min(1).max(5).optional(),
 		// hide a post from pagination

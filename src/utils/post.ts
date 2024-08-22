@@ -1,5 +1,6 @@
 import { getCollection, type CollectionEntry } from "astro:content";
 
+
 export async function getAllPosts(filterHidden: boolean = false) {
 	return await getCollection("blog", ({ data }) => {
 		if (import.meta.env.PROD) {
@@ -52,6 +53,12 @@ export function getPostsByTag(
 		return false;
 	});
 }
+
+// funzione per i post pinnati
+export function getPinnedPosts(posts: Array<CollectionEntry<"blog">>) {
+    return posts.filter(post => post.data.pinned === true);
+}
+
 
 export function getPostsBySeries (
 	series: string,
