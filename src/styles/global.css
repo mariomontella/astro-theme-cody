@@ -14,7 +14,7 @@
     --theme-quote: #dd7878;
     --theme-highlight: #dd7878;
   }
-
+/*
   :root.dark {
     color-scheme: dark;
     --theme-bg: #1d1d1d;
@@ -24,7 +24,7 @@
     --theme-surface: #1d1d1d;
     --theme-quote: #adff2f;
     --theme-highlight: #adff2f;
-  }
+  }  */
 
   /* default mario
 :root.dark {
@@ -39,18 +39,19 @@
   }
   */
 
-  /* blu theme mio 
+  /* blu theme mio */
+  
   :root.dark {
     color-scheme: dark;
     --theme-bg: #16202a;
     --theme-text: #f0ffff;
-    --theme-accent: #87cefa;
-    --theme-accent-2: #545454;
+    --theme-accent: #ff7514;
+    --theme-accent-2: #ff7514;
     --theme-surface: #16202a;
     --theme-quote: #87cefa;
     --theme-highlight: #87cefa;
   }
-   */
+  
   
 
   html {
