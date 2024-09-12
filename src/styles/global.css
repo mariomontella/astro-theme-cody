@@ -14,7 +14,7 @@
     --theme-quote: #dd7878;
     --theme-highlight: #dd7878;
   }
-/*
+
   :root.dark {
     color-scheme: dark;
     --theme-bg: #1d1d1d;
@@ -24,7 +24,7 @@
     --theme-surface: #1d1d1d;
     --theme-quote: #adff2f;
     --theme-highlight: #adff2f;
-  }  */
+  }  
 
   /* default mario
 :root.dark {
@@ -41,7 +41,7 @@
 
   /* blu theme mio */
   
-  :root.dark {
+  /* :root.dark {
     color-scheme: dark;
     --theme-bg: #16202a;
     --theme-text: #f0ffff;
@@ -52,7 +52,7 @@
     --theme-highlight: #87cefa;
   }
   
-  
+  */
 
   html {
     @apply scroll-smooth;
